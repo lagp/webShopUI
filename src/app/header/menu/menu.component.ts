@@ -1,23 +1,27 @@
 import { Mensaje } from '../../core/models/mensaje.model';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Categoria, Libro } from '../../core/models';
+import { CategoriaService } from 'src/app/services/categoria.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent {
-  CATEGORIAS = [
-    { 'id': 1, 'nombre': 'Informática' },
-    { 'id': 2, 'nombre': 'Novelas' },
-    { 'id': 3, 'nombre': 'Turismo' },
-    { 'id': 4, 'nombre': 'Idiomas' },
-  ];
-  categorias: Categoria[] = this.CATEGORIAS;
+export class MenuComponent implements OnInit {
+
+  categorias: Categoria[] = [];
   filtro: Libro = new Libro();
   mensaje: string = '';
   selectedCategoria: Categoria | undefined = undefined;
+
+  constructor(
+    private categoriaService: CategoriaService,
+  ) { }
+
+  ngOnInit(): void {
+    this.getCategorias();
+  }
 
   buscarOnClick() {
     if (this.filtro.titulo !== '' && this.filtro.titulo !== undefined) {
@@ -29,6 +33,12 @@ export class MenuComponent {
 
   categoriaOnClick(categoria: Categoria) {
     this.selectedCategoria = categoria;
+  }
+
+  private getCategorias(): void {
+    this.categoriaService.getCategorias().then(
+      categorias => this.categorias = categorias
+    );
   }
 
 }

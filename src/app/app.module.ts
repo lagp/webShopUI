@@ -9,6 +9,7 @@ import { MenuComponent } from './header/menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { PortadaComponent } from './portada/portada.component';
+import { CategoriaService } from './services/categoria.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { PortadaComponent } from './portada/portada.component';
     FormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    CategoriaService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
