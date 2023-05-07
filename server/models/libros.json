@@ -1,0 +1,44 @@
+[
+  {
+    "idLibro": 1,
+    "idCategoria": 1,
+    "titulo": "Hacking wireless 101",
+    "isbn": "1234-8888-1234",
+    "descripcion": "Libro sobre hackear redes inalámbricas",
+    "autor": "Karina Astudillo",
+    "categoria": {
+      "idCategoria": 1,
+      "nombreCategoria": "Informática"
+    },
+    "precio": 25,
+    "foto": "https://images-eu.ssl-images-amazon.com/images/I/51bR9WCi8EL._AC_US218_.jpg"
+  },
+  {
+    "idLibro": 2,
+    "idCategoria": 2,
+    "titulo": "Epic Hacker",
+    "isbn": "1234-6345-6334",
+    "descripcion": "Novela de ficción queincluye nociones de segurdad.",
+    "autor": "Alejandro Ramos",
+    "categoria": {
+      "idCategoria": 2,
+      "nombreCategoria": "Novelas"
+    },
+    "precio": 15,
+    "foto": "https://images-eu.ssl-images-amazon.com/images/I/41hjh74HOFL._SL218_PIsitb-sticker-arrow-dp,Topright,12,-18_SH30_OU30_AC_US218_.jpg"
+  },
+    {
+      "idLibro": 3,
+      "idCategoria": 1,
+      "titulo": "Hacking Etico",
+      "isbn": "9234-8122-4884",
+      "descripcion": "Explica nociones para hackear profesionalmente.",
+      "autor": "Karina Astudillo",
+      "categoria": {
+        "idCategoria": 1,
+        "nombreCategoria": "Informática"
+      },
+      "precio": 26,
+      "foto": "https://images-eu.ssl-images-amazon.com/images/I/51A+GdQ2KvL._AC_US218_.jpg"
+    }
+]

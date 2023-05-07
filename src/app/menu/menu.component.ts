@@ -1,6 +1,6 @@
-import { Mensaje } from '../../core/models/mensaje.model';
+import { Mensaje } from '../core/models/mensaje.model';
 import { Component, OnInit } from '@angular/core';
-import { Categoria, Libro } from '../../core/models';
+import { Categoria, Libro } from '../core/models';
 import { CategoriaService } from 'src/app/services/categoria.service';
 
 @Component({
@@ -36,8 +36,8 @@ export class MenuComponent implements OnInit {
   }
 
   private getCategorias(): void {
-    this.categoriaService.getCategorias().then(
-      categorias => this.categorias = categorias
+    this.categoriaService.getCategorias().subscribe(
+      (categorias: Categoria[]) => this.categorias = categorias
     );
   }
 

@@ -1,16 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Categoria } from '../core/models';
-import { CATEGORIAS } from './mock-categorias';
+import { Respuesta } from '../core/models';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs';
 
 @Injectable()
 export class CategoriaService {
+  private categoriasUrl: string = 'api/categorias';
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-  getCategorias(): Promise<Categoria[]> { 
-    return new Promise(resolve => {
-      // Simular latencia de una llamada HTTP
-      setTimeout(() => resolve(CATEGORIAS), 2000);
-    });
+  getCategorias() {
+    return this.http.get<Respuesta>(this.categoriasUrl)
+      .pipe(map(respuesta => respuesta.datos));
   }
+
+  private handleError(error: any): Promise<any> {
+    console.error('Ocurrio un error', error);
+    return Promise.reject(error.message || error);
+  }
+  
 }
